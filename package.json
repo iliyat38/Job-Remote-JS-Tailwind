@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.16",
+    "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "babel-plugin-react-compiler": "^1.0.0"
+  }
+}

@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+    --font-inter: 'Inter', sans-serif;
+    --breakpoint-xs: 33rem;
+}
+
+@theme {
+    @keyframes intro {
+        0% {
+            transform: scale(0.8);
+            -webkit-transform: scale(0.8);
+            -moz-transform: scale(0.8);
+            -ms-transform: scale(0.8);
+            -o-transform: scale(0.8);
+        }
+
+        100% {
+            transform: scale(1);
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+        }
+    }
+
+    @keyframes spinner {
+        0% {
+            transform: translateX(-50%) rotate(0deg);
+            -webkit-transform: translateX(-50%) rotate(0deg);
+            -moz-transform: translateX(-50%) rotate(0deg);
+            -ms-transform: translateX(-50%) rotate(0deg);
+            -o-transform: translateX(-50%) rotate(0deg);
+        }
+
+        100% {
+            transform: translateX(-50%) rotate(360deg);
+            -webkit-transform: translateX(-50%) rotate(360deg);
+            -moz-transform: translateX(-50%) rotate(360deg);
+            -ms-transform: translateX(-50%) rotate(360deg);
+            -o-transform: translateX(-50%) rotate(360deg);
+        }
+    }
+
+    --animate-intro: intro 0.6s ease-out;
+    --animate-spinner: spinner 1s linear infinite;
+}
+
+@utility sorting__button {
+    @apply text-xs uppercase bg-[#e8edf0] py-1.5 px-2 rounded-sm ml-0.5 cursor-pointer focus:bg-[#d0d5d8] hover:bg-[#d0d5d8] transition-all duration-200;
+}

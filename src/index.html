@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="output.css">
+
+    <script src="index.js" defer></script>
+
+    <title>Find Your Remote Developer Job</title>
+
+</head>
+
+<body class="body relative bg-[#dee3e9] min-h-screen font-inter">
+
+    <div
+        class="background absolute h-52.5 w-full top-0 left-0 -z-2 overflow-hidden bg-linear-to-br from-[#1f73f1ea] to-[#084fb9e4] shadow">
+        <img src="/img/pattern.svg" alt="Background pattern"
+            class="background__pattern h-full absolute left-0 scale-500">
+    </div>
+
+    <header class="header relative">
+        <div class="header__top flex items-center justify-center max-w-[1000px] my-0 mx-auto pt-10 animate-intro">
+            <a href="." class="logo w-12.5 -ml-2 select-none">
+                <img src="/img/icons8-dota-2.svg" alt="Logo" class="logo__img -mb-0.5 ">
+            </a>
+            <button
+                class="bookmarks-btn relative lowercase text-sm text-[#ffffffa9] ml-2 pl-3 h-8 cursor-pointer group hover:text-white active:text-white focus:text-white transition-all duration-200 before:content-[''] before:absolute before:block before:h-3.75 before:w-0.5 before:bg-[#FFFFFF4D] before:left-0 before:top-1/2 before:-translate-y-1/2">Bookmarks
+                <i
+                    class="fa-solid fa-caret-down bookmarks-btn__icon text-xs text-[#FFFFFF99] group-hover:text-white group-active:text-white group-focus:text-white ml-0.5 -translate-y-px transition-all duration-200"></i></button>
+            <ul class="job-list job-list--bookmarks">
+
+            </ul>
+        </div>
+    </header>
+
+    <main class="main flex flex-col items-center justify-center">
+        <section
+            class="intro flex flex-col justify-center items-start mt-5 pl-5 w-[clamp(200px,95vw,605px)] rounded-sm h-14 bg-[#ffffffce] animate-intro hover:bg-white focus-within:bg-white focus-within:outline-4 focus-within:outline-[#ffffff68] transition-all duration-200">
+            <form action="#" class="search relative w-full overflow-hidden">
+                <button type="submit" class="search__submit-btn text-gray-700 cursor-pointer absolute left-2 top-3.75">
+                    <i class="fa-solid fa-magnifying-glass search__icon"></i>
+                </button>
+                <input required
+                    class="form_textarea peer w-full h-14 pl-10 pr-4 caret-black selection:bg-gray-600 selection:text-amber-50 text-sm placeholder:opacity-0 outline-0"
+                    spellcheck="false" id="textarea" type="text" placeholder="Enter Text"></input>
+                <label for="textarea"
+                    class="form_label opacity-50 left-10 top-3.75 pointer-events-none absolute select-none peer-not-placeholder-shown:opacity-0 peer-focus:opacity-0 transition-opacity duration-500 ">Find
+                    remote developer jobs...
+                </label>
+            </form>
+        </section>
+
+        <div
+            class="container flex flex-col bg-white rounded-lg mt-10 max-h-154 w-[clamp(200px,95vw,1000px)] animate-intro">
+            <section class="search-results relative flex flex-col lg:w-85">
+                <div class="spinner spinner--search spinner--hidden"></div>
+
+                <div
+                    class="search-results__top flex items-center justify-between py-2.5 px-5 border-b border-[#e8edf0]">
+                    <p class="count text-sm">
+                        <span class="count__number font-bold">0</span> results
+                    </p>
+
+                    <section class="sorting flex justify-end items-center top-0">
+                        <i class="fa-solid fa-arrow-down-short-wide sorting__icon text-xs mr-1.5 text-[#4c4f50]"></i>
+                        <button
+                            class="sorting__button sorting__button--relevant text-white bg-[#3c4041] focus:bg-[#3c4041] hover:bg-[#3c4041] mr-1">Relevant</button>
+                        <button class="sorting__button sorting__button--recent ">Recent</button>
+                    </section>
+                </div>
+
+                <ul class="job-list job-list--search">
+
+                </ul>
+
+                <section class="pagination">
+                    <button class="pagination__button pagination__button--back pagination__button--hidden">
+                        <i class="fa-solid fa-arrow-left pagination__icon"></i>
+                        Page <span class="pagination__number pagination__number--back">1</span>
+                    </button>
+                    <button class="pagination__button pagination__button--next">
+                        Page <span class="pagination__number pagination__number--next">2</span>
+                        <i class="fa-solid fa-arrow-right pagination__icon"></i>
+                    </button>
+                </section>
+            </section>
+
+            <section class="job-details hidden">
+                <div class="spinner spinner--job-details"></div>
+
+                <div class="job-details__content">
+
+                    <div class="job-details__start-view">
+                        <p class="job-details__start-text job-details__start-text--big">What are you looking for?</p>
+                        <p class="job-details__start-text job-details__start-text">Start by searching for any technology
+                            your ideal job is working with</p>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <small class="copyright">
+            <p class="copyright__text">© Copyright by <a href="https://JavaScript.ir" class="copyright__link"
+                    target="_blank">JavaScript.ir</a> <i class="fa-solid fa-square-up-right copyright__icon"></i>
+                Intended for learning or your portfolio.</p>
+            <p class="copyright__text"><span class="u-bold u-italic">Not allowed</span> to use as your own teaching
+                material.</p>
+        </small>
+        <p class="jobs-available"><span class="u-bold">109573</span> total jobs available</p>
+        <h3>مرجع تخصصی جاوا اسکریپت ایران</h3>
+    </footer>
+
+    <section class="error">
+        <i class="fa-solid fa-circle-exclamation error__icon"></i>
+        <div class="error__right">
+            <p class="error__title">Something went wrong</p>
+            <p class="error__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+    </section>
+
+</body>
+
+</html>
