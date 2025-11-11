@@ -6,21 +6,24 @@
 }
 
 @theme {
+
     @keyframes intro {
         0% {
-            transform: scale(0.8);
-            -webkit-transform: scale(0.8);
-            -moz-transform: scale(0.8);
-            -ms-transform: scale(0.8);
-            -o-transform: scale(0.8);
+            opacity: 0;
+            transform: translateY(-10px) scale(0.95);
+            -webkit-transform: translateY(-10px) scale(0.95);
+            -moz-transform: translateY(-10px) scale(0.95);
+            -ms-transform: translateY(-10px) scale(0.95);
+            -o-transform: translateY(-10px) scale(0.95);
         }
 
         100% {
-            transform: scale(1);
-            -webkit-transform: scale(1);
-            -moz-transform: scale(1);
-            -ms-transform: scale(1);
-            -o-transform: scale(1);
+            opacity: 1;
+            transform: translateY(0px) scale(1);
+            -webkit-transform: translateY(0px) scale(1);
+            -moz-transform: translateY(0px) scale(1);
+            -ms-transform: translateY(0px) scale(1);
+            -o-transform: translateY(0px) scale(1);
         }
     }
 
@@ -42,10 +45,14 @@
         }
     }
 
-    --animate-intro: intro 0.6s ease-out;
+    --animate-intro: intro 0.7s ease-out;
     --animate-spinner: spinner 1s linear infinite;
 }
 
 @utility sorting__button {
     @apply text-xs uppercase bg-[#e8edf0] py-1.5 px-2 rounded-sm ml-0.5 cursor-pointer focus:bg-[#d0d5d8] hover:bg-[#d0d5d8] transition-all duration-200;
+}
+
+@utility pagination__button {
+    @apply text-[10px] bg-[#eceff2] py-1 px-2.5 rounded-4xl text-[#747c82] cursor-pointer focus:bg-[#dde2e6] hover:bg-[#dde2e6] transition-all duration-200;
 }
