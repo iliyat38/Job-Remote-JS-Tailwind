@@ -30,8 +30,12 @@
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --font-inter: 'Inter', sans-serif;
+<<<<<<< HEAD
     --animate-intro: intro 0.6s ease-out;
     --animate-spinner: spinner 1s linear infinite;
+=======
+    --animate-intro: intro 0.7s ease-out;
+>>>>>>> 656b78b93d651c44eed471fdeb386b921f8c3324
   }
 }
 @layer base {
@@ -773,11 +777,14 @@
       flex-direction: row;
     }
   }
+<<<<<<< HEAD
 }
 @property --tw-border-style {
   syntax: "*";
   inherits: false;
   initial-value: solid;
+=======
+>>>>>>> 656b78b93d651c44eed471fdeb386b921f8c3324
 }
 @property --tw-duration {
   syntax: "*";
@@ -813,6 +820,14 @@
   inherits: false;
   initial-value: 1;
 }
+<<<<<<< HEAD
+=======
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+>>>>>>> 656b78b93d651c44eed471fdeb386b921f8c3324
 @property --tw-gradient-position {
   syntax: "*";
   inherits: false;
@@ -936,18 +951,20 @@
 }
 @keyframes intro {
   0% {
-    transform: scale(0.8);
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    -ms-transform: scale(0.8);
-    -o-transform: scale(0.8);
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+    -webkit-transform: translateY(-10px) scale(0.95);
+    -moz-transform: translateY(-10px) scale(0.95);
+    -ms-transform: translateY(-10px) scale(0.95);
+    -o-transform: translateY(-10px) scale(0.95);
   }
   100% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+    -webkit-transform: translateY(0px) scale(1);
+    -moz-transform: translateY(0px) scale(1);
+    -ms-transform: translateY(0px) scale(1);
+    -o-transform: translateY(0px) scale(1);
   }
 }
 @keyframes spinner {
@@ -977,6 +994,10 @@
       --tw-scale-x: 1;
       --tw-scale-y: 1;
       --tw-scale-z: 1;
+<<<<<<< HEAD
+=======
+      --tw-border-style: solid;
+>>>>>>> 656b78b93d651c44eed471fdeb386b921f8c3324
       --tw-gradient-position: initial;
       --tw-gradient-from: #0000;
       --tw-gradient-via: #0000;
