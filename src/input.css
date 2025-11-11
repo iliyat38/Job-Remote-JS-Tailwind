@@ -55,7 +55,6 @@
 
 @utility pagination__button {
     @apply text-[10px] bg-[#eceff2] py-1 px-2.5 rounded-4xl text-[#747c82] cursor-pointer focus:bg-[#dde2e6] hover:bg-[#dde2e6] transition-all duration-200;
-<<<<<<< HEAD
 }
 
 @utility job-details__start-text {
@@ -64,6 +63,4 @@
 
 @utility spinner {
     @apply absolute rounded-full border-5 border-[#e2e7e9] border-l-[#ccd1d3] w-21 h-21 left-1/2 top-[3%] lg:top-[18%] animate-spinner;
-=======
->>>>>>> 656b78b93d651c44eed471fdeb386b921f8c3324
 }

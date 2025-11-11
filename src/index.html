@@ -18,7 +18,7 @@
 
 </head>
 
-<body class="body relative bg-[#dee3e9] min-h-screen font-inter">
+<body class="body relative bg-[#dee3e9] min-h-dvh font-inter">
 
     <div
         class="background absolute h-52.5 w-full top-0 left-0 -z-2 overflow-hidden bg-linear-to-br from-[#1f73f1ea] to-[#084fb9e4] shadow">
@@ -61,8 +61,7 @@
         <div
             class="container flex flex-col lg:flex-row bg-white rounded-lg mt-11 max-h-154 max-w-[800px] min-w-[200px] w-[95vw] lg:h-154 animate-intro">
             <section class="search-results relative flex flex-col justify-between lg:w-85 ">
-
-                <div class="spinner spinner--search spinner--hidden ">
+                <div class="spinner spinner--search spinner--hidden">
                 </div>
 
                 <div
@@ -116,15 +115,18 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <small class="copyright">
-            <p class="copyright__text">© Copyright by <a href="https://JavaScript.ir" class="copyright__link"
-                    target="_blank">JavaScript.ir</a> <i class="fa-solid fa-square-up-right copyright__icon"></i>
+    <footer class="footer max-w-[830px] flex items-center justify-between text-[#a4a9ac] mx-auto px-5">
+        <small class="copyright m-auto sm:m-0 text-xs selection:bg-[#6464640d]">
+            <p class="copyright__text text-center leading-1.2 sm:text-start">© Copyright by <a href="."
+                    class="copyright__link underline" target="_self">ILIYA</a> <i
+                    class="fa-solid fa-square-up-right copyright__icon text-[#aeb3b6] text-xs ml-1 mr-0.5"></i>
                 Intended for learning or your portfolio.</p>
-            <p class="copyright__text"><span class="u-bold u-italic">Not allowed</span> to use as your own teaching
+            <p class="copyright__text text-center leading-1.2 sm:text-start"><span class="font-bold italic">Not
+                    allowed</span> to use
+                as your own teaching
                 material.</p>
         </small>
-        <p class="jobs-available"><span class="u-bold">109573</span> total jobs available</p>
+        <p class="jobs-available hidden text-xs sm:block"><span class="font-bold">109573</span> total jobs available</p>
     </footer>
 
     <section class="error">
