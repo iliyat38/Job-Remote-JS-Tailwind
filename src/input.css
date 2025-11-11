@@ -49,3 +49,15 @@
 @utility sorting__button {
     @apply text-xs uppercase bg-[#e8edf0] py-1.5 px-2 rounded-sm ml-0.5 cursor-pointer focus:bg-[#d0d5d8] hover:bg-[#d0d5d8] transition-all duration-200;
 }
+
+@utility pagination__button {
+    @apply text-[10px] bg-[#eceff2] py-1 px-2.5 rounded-4xl text-[#747c82] cursor-pointer focus:bg-[#dde2e6] hover:bg-[#dde2e6] transition-all duration-200;
+}
+
+@utility job-details__start-text {
+    @apply opacity-55 text-[#24292d] text-sm text-center;
+}
+
+@utility spinner {
+    @apply absolute rounded-full border-5 border-[#e2e7e9] border-l-[#ccd1d3] w-21 h-21 left-1/2 top-[3%] lg:top-[18%] animate-spinner;
+}

@@ -59,9 +59,10 @@
         </section>
 
         <div
-            class="container flex flex-col bg-white rounded-lg mt-10 max-h-154 w-[clamp(200px,95vw,1000px)] animate-intro">
-            <section class="search-results relative flex flex-col lg:w-85">
-                <div class="spinner spinner--search spinner--hidden"></div>
+            class="container flex flex-col lg:flex-row bg-white rounded-lg mt-11 max-h-154 max-w-[800px] min-w-[200px] w-[95vw] lg:h-154 animate-intro">
+            <section class="search-results relative flex flex-col justify-between lg:w-85 ">
+                <div class="spinner spinner--search spinner--hidden">
+                </div>
 
                 <div
                     class="search-results__top flex items-center justify-between py-2.5 px-5 border-b border-[#e8edf0]">
@@ -81,26 +82,31 @@
 
                 </ul>
 
-                <section class="pagination">
-                    <button class="pagination__button pagination__button--back pagination__button--hidden">
-                        <i class="fa-solid fa-arrow-left pagination__icon"></i>
-                        Page <span class="pagination__number pagination__number--back">1</span>
+                <section class="pagination h-10 flex items-center justify-between px-5 border-t border-[#e8edf0]">
+                    <button class="pagination__button pagination__button--back pagination__button--hidden ">
+                        <i class="fa-solid fa-arrow-left pagination__icon text-[8px]"></i>
+                        Page <span class="pagination__number pagination__number--back font-medium">1</span>
                     </button>
                     <button class="pagination__button pagination__button--next">
-                        Page <span class="pagination__number pagination__number--next">2</span>
-                        <i class="fa-solid fa-arrow-right pagination__icon"></i>
+                        Page <span class="pagination__number pagination__number--next font-medium">2</span>
+                        <i class="fa-solid fa-arrow-right pagination__icon text-[8px]"></i>
                     </button>
                 </section>
             </section>
 
-            <section class="job-details hidden">
-                <div class="spinner spinner--job-details"></div>
+            <section class="job-details hidden relative lg:block flex-1 bg-[#eff2f5] rounded-tr-lg rounded-br-lg">
+                <div class="spinner spinner--job-details lg:top-[40%]">
+                </div>
 
-                <div class="job-details__content">
+                <div class="job-details__content h-full">
 
-                    <div class="job-details__start-view">
-                        <p class="job-details__start-text job-details__start-text--big">What are you looking for?</p>
-                        <p class="job-details__start-text job-details__start-text">Start by searching for any technology
+                    <div class="job-details__start-view absolute top-1/2 left-1/2 -translate-1/2">
+                        <p
+                            class="job-details__start-text job-details__start-text--big text-[#0d1114] text-lg font-semibold mb-2.5">
+                            What
+                            are you looking
+                            for?</p>
+                        <p class="job-details__start-text">Start by searching for any technology
                             your ideal job is working with</p>
                     </div>
 
@@ -118,7 +124,6 @@
                 material.</p>
         </small>
         <p class="jobs-available"><span class="u-bold">109573</span> total jobs available</p>
-        <h3>مرجع تخصصی جاوا اسکریپت ایران</h3>
     </footer>
 
     <section class="error">
