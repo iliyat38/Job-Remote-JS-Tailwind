@@ -64,3 +64,11 @@
 @utility spinner {
     @apply absolute rounded-full border-5 border-[#e2e7e9] border-l-[#ccd1d3] w-21 h-21 left-1/2 top-[3%] lg:top-[18%] animate-spinner;
 }
+
+@utility error__visible {
+    @apply opacity-100 translate-y-0;
+}
+
+@utility job-item--active {
+    @apply bg-[#eff2f5];
+}

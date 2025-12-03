@@ -12,7 +12,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="output.css">
 
-    <script src="index.js" defer></script>
+    <script src="index.js" defer type="module"></script>
 
     <title>Find Your Remote Developer Job</title>
 
@@ -49,7 +49,7 @@
                     <i class="fa-solid fa-magnifying-glass search__icon"></i>
                 </button>
                 <input required
-                    class="form_textarea peer w-full h-14 pl-10 pr-4 caret-black selection:bg-gray-600 selection:text-amber-50 text-sm placeholder:opacity-0 outline-0"
+                    class="search__input peer w-full h-14 pl-10 pr-4 rounded-sm caret-black selection:bg-gray-600 selection:text-white text-sm placeholder:opacity-0 outline-0"
                     spellcheck="false" id="textarea" type="text" placeholder="Enter Text"></input>
                 <label for="textarea"
                     class="form_label opacity-50 left-10 top-3.75 pointer-events-none absolute select-none peer-not-placeholder-shown:opacity-0 peer-focus:opacity-0 transition-opacity duration-500 ">Find
@@ -59,9 +59,9 @@
         </section>
 
         <div
-            class="container flex flex-col lg:flex-row bg-white rounded-lg mt-11 max-h-154 max-w-[800px] min-w-[200px] w-[95vw] lg:h-154 animate-intro">
-            <section class="search-results relative flex flex-col justify-between lg:w-85 ">
-                <div class="spinner spinner--search spinner--hidden">
+            class="container flex flex-col lg:flex-row bg-white rounded-lg mt-11 max-h-167 max-w-[1000px] min-w-[200px] w-[95vw] lg:h-167 animate-intro">
+            <section class="search-results relative flex flex-col justify-between lg:w-85">
+                <div class="spinner spinner--search hidden">
                 </div>
 
                 <div
@@ -95,10 +95,10 @@
             </section>
 
             <section class="job-details hidden relative lg:block flex-1 bg-[#eff2f5] rounded-tr-lg rounded-br-lg">
-                <div class="spinner spinner--job-details lg:top-[40%]">
+                <div class="spinner spinner--job-details lg:top-[40%] hidden">
                 </div>
 
-                <div class="job-details__content h-full">
+                <div class="job-details__content h-full w-[550px]">
 
                     <div class="job-details__start-view absolute top-1/2 left-1/2 -translate-1/2">
                         <p
