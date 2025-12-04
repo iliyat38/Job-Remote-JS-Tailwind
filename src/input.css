@@ -72,3 +72,11 @@
 @utility job-item--active {
     @apply bg-[#eff2f5];
 }
+
+@utility job-info__extra {
+    @apply text-xs flex items-center;
+}
+
+@utility job-info__extra-icon {
+    @apply h-6 w-6 rounded-full bg-[#e4e9ed] flex items-center justify-center text-[9px] mr-2 text-[#a1a8b0];
+}
