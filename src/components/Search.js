@@ -3,22 +3,32 @@ import {
     searchInputEl,
     searchFormEl,
     spinnerSearchEl,
+    state,
     numberEl,
     colors,
-    BASE_API_URL
+    BASE_API_URL,
+    getData,
+    paginationBtnNextEl,
+    sortingBtnRecentEl,
+    sortingBtnRelevantEl,
 } from "../common.js"
 
 import renderError from "./Error.js";
 import renderSpinner from "./Spinner.js";
 import renderJobList from "./jobList.js";
+import renderPagingBtn from "./Pagination.js";
 
 // Search component
-const submitHandler = e => {
+const submitHandler = async e => {
     e.preventDefault();
 
     jobListSearchEl.innerHTML = "";
     //get input search text
     const searchText = searchInputEl.value;
+
+    //reset sorting btn
+    sortingBtnRelevantEl.classList.add('sorting__button--active');
+    sortingBtnRecentEl.classList.remove('sorting__button--active');
 
     //validation
     const forbiddenPattern = /[0-9]/;
@@ -28,26 +38,30 @@ const submitHandler = e => {
         return;
     }
     searchInputEl.blur();
+    state.currentPage = 1;
+    renderPagingBtn();
     renderSpinner('search');
 
-    //fetch data from server
-    fetch(`${BASE_API_URL}/jobs?search=${searchText}`)
-        .then(res => {
-            if (!res.ok) {
-                console.log('something went wrong');
-            }
+    try {
+        const data = await getData(`${BASE_API_URL}/jobs?search=${searchText}`);
 
-            return res.json();
-        })
-        .then(data => {
-            // job items
-            const { jobItems } = data;
-            numberEl.textContent = jobItems.length;
-            renderSpinner('search');
-            renderJobList(jobItems);
+        //گرفتن jobItems
+        const { jobItems } = data;
 
-        })
-        .catch(err => console.error(err));
+        //update state
+        state.searchJobItems = jobItems;
+
+        renderSpinner('search');
+
+        numberEl.textContent = jobItems.length;
+
+        renderJobList();
+        paginationBtnNextEl.classList.remove('invisible');
+    } catch (err) {
+        renderSpinner('search');
+        renderError();
+        console.log(err.message);
+    }
 
 };
 

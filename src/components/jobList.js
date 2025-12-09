@@ -3,14 +3,21 @@ import {
     jobDetailsContentEl,
     spinnerJobDetailsEl,
     BASE_API_URL,
-    colors
+    colors,
+    getData,
+    state,
+    ITEM_SIZE_PER_PAGE
 } from "../common.js"
 import renderSpinner from "./Spinner.js";
 import renderJobDetailsHtml from "./jobDetails.js";
+import renderError from "./Error.js";
 
-const renderJobList = jobItems => {
+const renderJobList = () => {
 
-    jobItems.slice(0, 7).forEach(jobItem => {
+    jobListSearchEl.innerHTML = '';
+
+    state.searchJobItems.slice(state.currentPage * ITEM_SIZE_PER_PAGE - ITEM_SIZE_PER_PAGE, state.currentPage * ITEM_SIZE_PER_PAGE).forEach(jobItem => {
+
         const colorIndex = jobListSearchEl.children.length % colors.length;
         const badgeColor = colors[colorIndex];
         const jobItemHtml = `
@@ -50,7 +57,7 @@ const renderJobList = jobItems => {
     });
 }
 
-const clickHandler = e => {
+const clickHandler = async e => {
     e.preventDefault();
 
     const jobItemEl = e.target.closest('.job-item');
@@ -62,23 +69,19 @@ const clickHandler = e => {
 
     const jobId = jobItemEl.children[0].getAttribute('href');
 
-    fetch(`${BASE_API_URL}/jobs/${jobId}`)
-        .then(res => {
-            if (!res.ok) {
-                console.error('failed to fetch job detail');
-                return;
-            }
-            return res.json();
-        })
-        .then(data => {
-            const { jobItem } = data;
-            renderSpinner('jobList');
+    try {
+        const data = await getData(`${BASE_API_URL}/jobs/${jobId}`);
 
-            renderJobDetailsHtml(jobItem, badgeColor);
+        const { jobItem } = data;
 
-        })
-        .catch(err => console.error(err)
-        )
+        renderSpinner('jobList');
+
+        renderJobDetailsHtml(jobItem, badgeColor);
+    } catch (err) {
+        renderSpinner('jobList');
+        renderError();
+        console.log(err.message);
+    }
 }
 jobListSearchEl.addEventListener('click', clickHandler);
 

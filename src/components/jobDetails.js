@@ -2,7 +2,7 @@ import { jobDetailsContentEl } from '../common.js'
 
 const renderJobDetailsHtml = (jobItem, badgeColor) => {
     const detail = `
-                    <img src="${jobItem.coverImgURL}" alt="#"
+                    <img src="../img/image.avif" alt="#"
                         class="job-details__cover-img absolute w-full h-44 z-0 top-0 object-cover rounded-tr-lg select-none">
 
                     <a class="apply-btn absolute flex items-center bg-[#2671dd] z-2 text-[#FFFFFFEB] text-[11px] py-1.5 px-2 rounded-sm top-3 right-3 cursor-pointer uppercase hover:bg-[#1d60bd] focus:bg-[#1d60bd] focus:text-[#FFFFFF] transition-all duration-200"
@@ -18,7 +18,7 @@ const renderJobDetailsHtml = (jobItem, badgeColor) => {
                                 class="job-info__badge w-15 h-17.5 rounded-sm flex items-center justify-center text-xl font-semibold mb-3.25">
                                 ${jobItem.badgeLetters}</div>
                             <div class="job-info__below-badge flex justify-between">
-                                <time class="job-info__time text-xs translate-y-px text-[#4d5254]">${jobItem.daysAgo}</time>
+                                <time class="job-info__time text-xs translate-y-px text-[#4d5254]">${jobItem.daysAgo}d</time>
                                 <button class="job-info__bookmark-btn cursor-pointer hover:text-[#2671dd]">
                                     <i
                                         class="fa-solid fa-bookmark job-info__bookmark-icon text-[#d7dbe0] text-lg hover:text-[#2671dd]"></i>

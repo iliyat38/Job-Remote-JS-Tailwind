@@ -50,11 +50,15 @@
 }
 
 @utility sorting__button {
-    @apply text-xs uppercase bg-[#e8edf0] py-1.5 px-2 rounded-sm ml-0.5 cursor-pointer focus:bg-[#d0d5d8] hover:bg-[#d0d5d8] transition-all duration-200;
+    @apply text-xs uppercase bg-[#e8edf0] py-1.5 px-2 rounded-sm ml-0.5 cursor-pointer transition-all duration-200;
+}
+
+@utility sorting__button--active {
+    @apply bg-[#3c4041] text-white;
 }
 
 @utility pagination__button {
-    @apply text-[10px] bg-[#eceff2] py-1 px-2.5 rounded-4xl text-[#747c82] cursor-pointer focus:bg-[#dde2e6] hover:bg-[#dde2e6] transition-all duration-200;
+    @apply text-[10px] bg-[#eceff2] py-1 px-2.5 rounded-4xl text-[#747c82] cursor-pointer focus:bg-[#dde2e6] hover:bg-[#dde2e6] transition-colors duration-200;
 }
 
 @utility job-details__start-text {

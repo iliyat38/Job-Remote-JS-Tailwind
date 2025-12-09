@@ -3,13 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.colors = exports.spinnerJobDetailsEl = exports.spinnerSearchEl = exports.sortingBtnRecentEl = exports.sortingBtnRelevantEl = exports.sortingEl = exports.searchInputEl = exports.searchFormEl = exports.paginationNumberBackEl = exports.paginationNumberNextEl = exports.paginationBtnBackEl = exports.paginationBtnNextEl = exports.paginationEl = exports.numberEl = exports.jobListSearchEl = exports.jobListBookmarksEl = exports.jobDetailsContentEl = exports.jobDetailsEl = exports.errorTextEl = exports.errorEl = exports.bookmarksBtnEl = exports.DEFAULT_DISPLAY_TIME = exports.BASE_API_URL = void 0;
+exports.state = exports.getData = exports.colors = exports.spinnerJobDetailsEl = exports.spinnerSearchEl = exports.sortingBtnRecentEl = exports.sortingBtnRelevantEl = exports.sortingEl = exports.searchInputEl = exports.searchFormEl = exports.paginationNumberBackEl = exports.paginationNumberNextEl = exports.paginationBtnBackEl = exports.paginationBtnNextEl = exports.paginationEl = exports.numberEl = exports.jobListSearchEl = exports.jobListBookmarksEl = exports.jobDetailsContentEl = exports.jobDetailsEl = exports.errorTextEl = exports.errorEl = exports.bookmarksBtnEl = exports.ITEM_SIZE_PER_PAGE = exports.DEFAULT_DISPLAY_TIME = exports.BASE_API_URL = void 0;
 //CONSTANTS
 var BASE_API_URL = 'https://bytegrad.com/course-assets/js/2/api';
 exports.BASE_API_URL = BASE_API_URL;
-var DEFAULT_DISPLAY_TIME = 4000; //SELECTORS
-
+var DEFAULT_DISPLAY_TIME = 4000;
 exports.DEFAULT_DISPLAY_TIME = DEFAULT_DISPLAY_TIME;
+var ITEM_SIZE_PER_PAGE = 7; //SELECTORS
+
+exports.ITEM_SIZE_PER_PAGE = ITEM_SIZE_PER_PAGE;
 var bookmarksBtnEl = document.querySelector('.bookmarks-btn');
 exports.bookmarksBtnEl = bookmarksBtnEl;
 var errorEl = document.querySelector('.error');
@@ -50,5 +52,48 @@ var spinnerSearchEl = document.querySelector(".spinner--search");
 exports.spinnerSearchEl = spinnerSearchEl;
 var spinnerJobDetailsEl = document.querySelector(".spinner--job-details");
 exports.spinnerJobDetailsEl = spinnerJobDetailsEl;
-var colors = ['#8dd335', '#3D87F1', '#D2D631', '#D96A46'];
+var colors = ['#8dd335', '#3D87F1', '#D2D631', '#D96A46']; //UTILITY FUNCTIONS
+
 exports.colors = colors;
+
+var getData = function getData(URL) {
+  var response, data;
+  return regeneratorRuntime.async(function getData$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return regeneratorRuntime.awrap(fetch(URL));
+
+        case 2:
+          response = _context.sent;
+          _context.next = 5;
+          return regeneratorRuntime.awrap(response.json());
+
+        case 5:
+          data = _context.sent;
+
+          if (response.ok) {
+            _context.next = 8;
+            break;
+          }
+
+          throw new Error(data.description);
+
+        case 8:
+          return _context.abrupt("return", data);
+
+        case 9:
+        case "end":
+          return _context.stop();
+      }
+    }
+  });
+};
+
+exports.getData = getData;
+var state = {
+  searchJobItems: [],
+  currentPage: 1
+};
+exports.state = state;

@@ -11,6 +11,7 @@
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="output.css">
+    <link rel="icon" href="/img/icons8-dota-2.svg">
 
     <script src="index.js" defer type="module"></script>
 
@@ -73,7 +74,7 @@
                     <section class="sorting flex justify-end items-center top-0">
                         <i class="fa-solid fa-arrow-down-short-wide sorting__icon text-xs mr-1.5 text-[#4c4f50]"></i>
                         <button
-                            class="sorting__button sorting__button--relevant text-white bg-[#3c4041] focus:bg-[#3c4041] hover:bg-[#3c4041] mr-1">Relevant</button>
+                            class="sorting__button sorting__button--relevant sorting__button--active mr-1">Relevant</button>
                         <button class="sorting__button sorting__button--recent ">Recent</button>
                     </section>
                 </div>
@@ -87,7 +88,7 @@
                         <i class="fa-solid fa-arrow-left pagination__icon text-[8px]"></i>
                         Page <span class="pagination__number pagination__number--back font-medium">1</span>
                     </button>
-                    <button class="pagination__button pagination__button--next ">
+                    <button class="pagination__button pagination__button--next invisible">
                         Page <span class="pagination__number pagination__number--next font-medium">2</span>
                         <i class="fa-solid fa-arrow-right pagination__icon text-[8px]"></i>
                     </button>
