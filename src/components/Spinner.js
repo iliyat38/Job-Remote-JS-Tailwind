@@ -3,8 +3,8 @@ import {
     spinnerSearchEl
 } from '../common.js';
 
-const renderSpinner = wichSpinner => {
-    const spinnerEl = wichSpinner === 'search' ? spinnerSearchEl : spinnerJobDetailsEl;
+const renderSpinner = whichSpinner => {
+    const spinnerEl = whichSpinner === 'search' ? spinnerSearchEl : spinnerJobDetailsEl;
     spinnerEl.classList.toggle('hidden');
 }
 export default renderSpinner;

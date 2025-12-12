@@ -17,3 +17,5 @@ require("./components/Pagination.js");
 require("./components/Router.js");
 
 require("./components/bookMarks.js");
+
+require("./components/Storage.js");

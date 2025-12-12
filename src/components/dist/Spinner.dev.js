@@ -7,8 +7,8 @@ exports["default"] = void 0;
 
 var _common = require("../common.js");
 
-var renderSpinner = function renderSpinner(wichSpinner) {
-  var spinnerEl = wichSpinner === 'search' ? _common.spinnerSearchEl : _common.spinnerJobDetailsEl;
+var renderSpinner = function renderSpinner(whichSpinner) {
+  var spinnerEl = whichSpinner === 'search' ? _common.spinnerSearchEl : _common.spinnerJobDetailsEl;
   spinnerEl.classList.toggle('hidden');
 };
 

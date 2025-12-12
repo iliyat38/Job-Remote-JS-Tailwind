@@ -10,15 +10,25 @@ import renderJobList from './jobList.js';
 const clickHandler = (e) => {
 
     if (!e.target.className.includes('bookmark')) return;
-    state.bookmarkJobItems.push(state.activeJobItem);
-    console.log(state.bookmarkJobItems);
+
+    if (state.bookmarkJobItems.some(bookmark => bookmark.id === state.activeJobItem.id)) {
+        state.bookmarkJobItems = state.bookmarkJobItems.filter(bookmark => bookmark.id !== state.activeJobItem.id);
+    } else {
+        state.bookmarkJobItems.push(state.activeJobItem);
+    }
+
+
+    //local storage
+    localStorage.setItem('bookmarksJobItems', JSON.stringify(state.bookmarkJobItems));
 
     document.querySelector('.job-info__bookmark-icon').classList.toggle('bookmark-active');
+    renderJobList('search');
 };
 
 const mouseEnterHandler = () => {
     jobListBookmarksEl.classList.remove("opacity-0", "scale-90", "invisible", "pointer-events-none");
     jobListBookmarksEl.classList.add("opacity-100", "scale-100", "pointer-events-auto");
+    renderJobList('bookmark');
 }
 const mouseLeaveHandler = () => {
     jobListBookmarksEl.classList.add("opacity-0", "scale-90", "invisible", "pointer-events-none");

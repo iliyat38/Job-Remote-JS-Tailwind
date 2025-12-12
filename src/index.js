@@ -7,3 +7,4 @@ import "./components/sorting.js";
 import "./components/Pagination.js";
 import "./components/Router.js";
 import "./components/bookMarks.js";
+import "./components/Storage.js";

@@ -1,4 +1,4 @@
-import { jobDetailsContentEl } from '../common.js';
+import { jobDetailsContentEl, state } from '../common.js';
 
 const renderJobDetailsHtml = (jobItem, badgeColor) => {
     const detail = `
@@ -19,7 +19,7 @@ const renderJobDetailsHtml = (jobItem, badgeColor) => {
                                 ${jobItem.badgeLetters}</div>
                             <div class="job-info__below-badge flex justify-between">
                                 <time class="job-info__time text-xs translate-y-px text-[#4d5254]">${jobItem.daysAgo}d</time>
-                                <button class="job-info__bookmark-btn cursor-pointer hover:text-[#2671dd]">
+                                <button class="job-info__bookmark-btn cursor-pointer ">
                                     <i
                                         class="fa-solid fa-bookmark job-info__bookmark-icon text-[#d7dbe0] [&.bookmark-active]:text-[#2671dd] text-lg hover:text-[#2671dd]"></i>
                                 </button>

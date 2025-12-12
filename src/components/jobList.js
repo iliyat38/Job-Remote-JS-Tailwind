@@ -6,17 +6,28 @@ import {
     colors,
     getData,
     state,
-    ITEM_SIZE_PER_PAGE
+    ITEM_SIZE_PER_PAGE,
+    jobListBookmarksEl
 } from "../common.js";
 import renderSpinner from "./Spinner.js";
 import renderJobDetailsHtml from "./jobDetails.js";
 import renderError from "./Error.js";
 
-const renderJobList = () => {
+const renderJobList = (whichJobList = 'search') => {
 
-    jobListSearchEl.innerHTML = '';
+    const jobListEl = whichJobList === 'search' ? jobListSearchEl : jobListBookmarksEl;
 
-    state.searchJobItems.slice(state.currentPage * ITEM_SIZE_PER_PAGE - ITEM_SIZE_PER_PAGE, state.currentPage * ITEM_SIZE_PER_PAGE).forEach(jobItem => {
+    jobListEl.innerHTML = '';
+
+    let jobItems;
+
+    if (whichJobList === 'search') {
+        jobItems = state.searchJobItems.slice(state.currentPage * ITEM_SIZE_PER_PAGE - ITEM_SIZE_PER_PAGE, state.currentPage * ITEM_SIZE_PER_PAGE);
+    } else {
+        jobItems = state.bookmarkJobItems;
+    }
+
+    jobItems.forEach(jobItem => {
 
         const colorIndex = jobListSearchEl.children.length % colors.length;
         const badgeColor = colors[colorIndex];
@@ -46,14 +57,14 @@ const renderJobList = () => {
                             </div>
                             <div class="job-item__right ml-auto flex flex-col items-end">
                                 <i
-                                    class="fa-solid fa-bookmark job-item__bookmark-icon text-sm cursor-pointer text-[#d7dbe0] hover:text-[#9ca2a9] transition-all duration-200"></i>
+                                    class="fa-solid fa-bookmark job-item__bookmark-icon  ${state.bookmarkJobItems.some(b => b.id == jobItem.id) ? 'job-item__bookmark-icon--bookmarked' : 'text-[#d7dbe0]'} text-sm cursor-pointer  hover:text-[#9ca2a9] transition-all duration-200"></i>
                                 <time
                                     class="job-item__time text-[10px] mt-1 text-[#515459]">${jobItem.daysAgo}d</time>
                             </div>
                         </a>
                     </li>
             `;
-        jobListSearchEl.insertAdjacentHTML('beforeend', jobItemHtml);
+        jobListEl.insertAdjacentHTML('beforeend', jobItemHtml);
     });
 }
 
@@ -61,17 +72,24 @@ const clickHandler = async e => {
     e.preventDefault();
 
     const jobItemEl = e.target.closest('.job-item');
+    if (!jobItemEl) return;
 
     const badgeColor = jobItemEl.querySelector('.job-item__badge').dataset.badgeColor;
+
+    // localStorage.setItem('badgeColor', badgeColor);
 
     state.badgeColor = badgeColor;
 
     jobDetailsContentEl.innerHTML = '';
     renderSpinner('jobList');
 
+    document.querySelectorAll('.job-item--active').forEach(item => item.classList.remove('job-item--active'));
+    jobItemEl.classList.add('job-item--active');
+
     const jobId = jobItemEl.children[0].getAttribute('href');
 
-    state.activeJobItem = state.searchJobItems.find(item => item.id === +jobId);
+    const allJobItems = [...state.searchJobItems, ...state.bookmarkJobItems];
+    state.activeJobItem = allJobItems.find(item => item.id === +jobId);
 
     history.pushState(null, '', `#${jobId}`)
 
@@ -90,5 +108,6 @@ const clickHandler = async e => {
     }
 }
 jobListSearchEl.addEventListener('click', clickHandler);
+jobListBookmarksEl.addEventListener('click', clickHandler);
 
 export default renderJobList;

@@ -85,6 +85,6 @@
     @apply h-6 w-6 rounded-full bg-[#e4e9ed] flex items-center justify-center text-[9px] mr-2 text-[#a1a8b0];
 }
 
-@utility bookmark-active {
-    @apply text-[#2671dd];
+@utility job-item__bookmark-icon--bookmarked {
+    @apply text-[#2671dd]
 }
