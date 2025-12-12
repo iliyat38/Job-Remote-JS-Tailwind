@@ -1,4 +1,4 @@
-import { jobDetailsContentEl } from '../common.js'
+import { jobDetailsContentEl } from '../common.js';
 
 const renderJobDetailsHtml = (jobItem, badgeColor) => {
     const detail = `
@@ -21,7 +21,7 @@ const renderJobDetailsHtml = (jobItem, badgeColor) => {
                                 <time class="job-info__time text-xs translate-y-px text-[#4d5254]">${jobItem.daysAgo}d</time>
                                 <button class="job-info__bookmark-btn cursor-pointer hover:text-[#2671dd]">
                                     <i
-                                        class="fa-solid fa-bookmark job-info__bookmark-icon text-[#d7dbe0] text-lg hover:text-[#2671dd]"></i>
+                                        class="fa-solid fa-bookmark job-info__bookmark-icon text-[#d7dbe0] [&.bookmark-active]:text-[#2671dd] text-lg hover:text-[#2671dd]"></i>
                                 </button>
                             </div>
                         </div>
@@ -76,7 +76,7 @@ const renderJobDetailsHtml = (jobItem, badgeColor) => {
                         </section>
                     </div>
 
-                    <footer class="job-details__footer mx-10.5 mt-8.25 p-3.25 border border-[#dce2e8]">
+                    <footer class="job-details__footer text-sm mx-10.5 mt-8.25 p-3.25 border border-[#dce2e8]">
                         <p class="job-details__footer-text">If possible, please reference that you found the job on
                             <span class="u-bold">rmtDev</span>, we would really appreciate it!
                         </p>

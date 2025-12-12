@@ -13,3 +13,7 @@ require("./components/jobDetails.js");
 require("./components/sorting.js");
 
 require("./components/Pagination.js");
+
+require("./components/Router.js");
+
+require("./components/bookMarks.js");

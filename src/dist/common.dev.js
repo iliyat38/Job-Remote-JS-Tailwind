@@ -94,6 +94,9 @@ var getData = function getData(URL) {
 exports.getData = getData;
 var state = {
   searchJobItems: [],
-  currentPage: 1
+  currentPage: 1,
+  badgeColor: '',
+  activeJobItem: {},
+  bookmarkJobItems: []
 };
 exports.state = state;

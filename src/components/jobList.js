@@ -7,7 +7,7 @@ import {
     getData,
     state,
     ITEM_SIZE_PER_PAGE
-} from "../common.js"
+} from "../common.js";
 import renderSpinner from "./Spinner.js";
 import renderJobDetailsHtml from "./jobDetails.js";
 import renderError from "./Error.js";
@@ -21,7 +21,7 @@ const renderJobList = () => {
         const colorIndex = jobListSearchEl.children.length % colors.length;
         const badgeColor = colors[colorIndex];
         const jobItemHtml = `
-                    <li class="job-item bg-white cursor-pointer border-b border-[#ebeff1] last:border-b-0 hover:bg-[#f4f5f7] transition-all duration-200">
+                    <li class="job-item bg-white ${state.activeJobItem.id === jobItem.id ? 'job-item--active' : ''} cursor-pointer border-b border-[#ebeff1] last:border-b-0 hover:bg-[#f4f5f7] transition-all duration-200">
                         <a class="job-item__link w-full h-full px-5 py-3.5 focus:bg-[#f4f5f7] flex" href="${jobItem.id}">
                             <div
                                 class="job-item__badge text-sm h-11.5 w-9.5 rounded-md flex justify-center items-center mr-3.25 font-semibold"
@@ -64,10 +64,16 @@ const clickHandler = async e => {
 
     const badgeColor = jobItemEl.querySelector('.job-item__badge').dataset.badgeColor;
 
+    state.badgeColor = badgeColor;
+
     jobDetailsContentEl.innerHTML = '';
     renderSpinner('jobList');
 
     const jobId = jobItemEl.children[0].getAttribute('href');
+
+    state.activeJobItem = state.searchJobItems.find(item => item.id === +jobId);
+
+    history.pushState(null, '', `#${jobId}`)
 
     try {
         const data = await getData(`${BASE_API_URL}/jobs/${jobId}`);

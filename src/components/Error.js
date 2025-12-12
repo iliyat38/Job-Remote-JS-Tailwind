@@ -2,7 +2,7 @@ import {
     errorEl,
     errorTextEl,
     DEFAULT_DISPLAY_TIME
-} from "../common.js"
+} from "../common.js";
 const renderError = (message = 'something went wrong!') => {
     errorTextEl.textContent = message;
     errorEl.classList.remove('hidden');

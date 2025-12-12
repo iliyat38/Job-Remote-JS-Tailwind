@@ -36,8 +36,29 @@
                 class="bookmarks-btn relative lowercase text-sm text-[#ffffffa9] ml-2 pl-3 h-8 cursor-pointer group hover:text-white active:text-white focus:text-white transition-all duration-200 before:content-[''] before:absolute before:block before:h-3.75 before:w-0.5 before:bg-[#FFFFFF4D] before:left-0 before:top-1/2 before:-translate-y-1/2">Bookmarks
                 <i
                     class="fa-solid fa-caret-down bookmarks-btn__icon text-xs text-[#FFFFFF99] group-hover:text-white group-active:text-white group-focus:text-white ml-0.5 -translate-y-px transition-all duration-200"></i></button>
-            <ul class="job-list job-list--bookmarks">
+            <ul class="job-list job-list--bookmarks
+         fixed left-1/2 top-[82px]
+         min-h-[76px] min-w-[340px] w-[340px]
+         overflow-hidden rounded-sm
+         shadow-[0_5px_8px_rgba(0,0,0,0.15)]
+         z-10
+         bg-white
 
+         invisible opacity-0 pointer-events-none
+         scale-90 -translate-x-1/2 origin-top
+         transition-all duration-200
+
+         hover:visible hover:opacity-100 hover:pointer-events-auto hover:scale-100
+
+         before:content-['Nothing_bookmarked_yet...']
+         before:absolute before:top-[49%] before:left-1/2
+         before:-translate-x-1/2 before:-translate-y-1/2
+         before:text-[13px] before:text-[#616268] before:-z-10
+
+         max-[370px]:w-[93vw]
+         max-[370px]:min-w-0
+         max-[1179px]:right-0
+  ">
             </ul>
         </div>
     </header>

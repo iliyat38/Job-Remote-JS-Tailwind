@@ -1,7 +1,7 @@
 import {
     spinnerJobDetailsEl,
     spinnerSearchEl
-} from '../common.js'
+} from '../common.js';
 
 const renderSpinner = wichSpinner => {
     const spinnerEl = wichSpinner === 'search' ? spinnerSearchEl : spinnerJobDetailsEl;

@@ -11,7 +11,7 @@ import {
     paginationBtnNextEl,
     sortingBtnRecentEl,
     sortingBtnRelevantEl,
-} from "../common.js"
+} from "../common.js";
 
 import renderError from "./Error.js";
 import renderSpinner from "./Spinner.js";

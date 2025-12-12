@@ -4,7 +4,7 @@ import {
     sortingEl,
     state,
     jobListSearchEl
-} from '../common.js'
+} from '../common.js';
 
 import renderJobList from "./jobList.js";
 import renderPagingBtn from "./Pagination.js";
