@@ -37,6 +37,7 @@ export const getData = async (URL) => {
     return data;
 };
 
+//STATE
 export const state = {
     searchJobItems: [],
     currentPage: 1,

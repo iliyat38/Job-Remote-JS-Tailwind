@@ -18,7 +18,7 @@ import renderSpinner from "./Spinner.js";
 import renderJobList from "./jobList.js";
 import renderPagingBtn from "./Pagination.js";
 
-// Search component
+
 const submitHandler = async e => {
     e.preventDefault();
 
@@ -34,23 +34,26 @@ const submitHandler = async e => {
     const forbiddenPattern = /[0-9]/;
     const patternMatch = forbiddenPattern.test(searchText);
     if (patternMatch) {
-        renderError("your search may not contain number")
+        renderError("your search may not contain number");
         return;
     }
     searchInputEl.blur();
+
     state.currentPage = 1;
     renderPagingBtn();
+
     renderSpinner('search');
 
     try {
         const data = await getData(`${BASE_API_URL}/jobs?search=${searchText}`);
 
-        //گرفتن jobItems
+        //get jobItems
         const { jobItems } = data;
 
         //update state
         state.searchJobItems = jobItems;
 
+        //deleting spinner
         renderSpinner('search');
 
         numberEl.textContent = jobItems.length;

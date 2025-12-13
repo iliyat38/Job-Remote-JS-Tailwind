@@ -89,7 +89,8 @@ var getData = function getData(URL) {
       }
     }
   });
-};
+}; //STATE
+
 
 exports.getData = getData;
 var state = {

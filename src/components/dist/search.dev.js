@@ -12,7 +12,6 @@ var _Pagination = _interopRequireDefault(require("./Pagination.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-// Search component
 var submitHandler = function submitHandler(e) {
   var searchText, forbiddenPattern, patternMatch, data, jobItems;
   return regeneratorRuntime.async(function submitHandler$(_context) {
@@ -52,10 +51,11 @@ var submitHandler = function submitHandler(e) {
 
         case 17:
           data = _context.sent;
-          //گرفتن jobItems
+          //get jobItems
           jobItems = data.jobItems; //update state
 
-          _common.state.searchJobItems = jobItems;
+          _common.state.searchJobItems = jobItems; //deleting spinner
+
           (0, _Spinner["default"])('search');
           _common.numberEl.textContent = jobItems.length;
           (0, _jobList["default"])();
